@@ -1,4 +1,5 @@
 flask
+flask_sqlalchemy
+flask_restx
 gunicorn
 psycopg2-binary
-flask_sqlalchemy
