@@ -1,12 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_restx import Api, Resource, fields
-import os
 
 app = Flask(__name__)
 
-# Configure SQLite Database (in-memory or file-based)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'  # For a file-based SQLite database
+# Configure PostgreSQL Database (Neon.tech connection string)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://neondb_owner:npg_Od7nk1yFtgWE@ep-summer-meadow-a8dvj3fd-pooler.eastus2.azure.neon.tech/neondb?sslmode=require'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
