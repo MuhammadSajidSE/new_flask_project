@@ -4,8 +4,8 @@ from flask_restx import Api, Resource, fields
 
 app = Flask(__name__)
 
-# Configure PostgreSQL Database (Neon.tech connection string)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://neondb_owner:npg_Od7nk1yFtgWE@ep-summer-meadow-a8dvj3fd-pooler.eastus2.azure.neon.tech/neondb?sslmode=require'
+# Configure PostgreSQL Database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123%23sajid@localhost:5432/flaskdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -51,4 +51,4 @@ class StudentList(Resource):
 
 # Run Flask App
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
