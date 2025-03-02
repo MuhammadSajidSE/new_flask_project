@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_restx import Api, Resource, fields
+import os
 
 app = Flask(__name__)
 
-# Configure PostgreSQL Database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123#sajid@localhost:5432/flaskdb'
+# Configure SQLite Database (in-memory or file-based)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'  # For a file-based SQLite database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -51,4 +52,4 @@ class StudentList(Resource):
 
 # Run Flask App
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
